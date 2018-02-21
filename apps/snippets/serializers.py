@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
-from django.contrib.auth.models import User, Group
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from .models import Snippet, LANGUAGE_CHOICES,STYLE_CHOICES
 
+User = get_user_model()
 
 # class SnippetSerializer(serializers.Serializer):
 #     """
@@ -44,6 +45,7 @@ class SnippetSerializer(serializers.ModelSerializer):
         model = Snippet
         #field = ('title', 'code', 'linenos', 'language', 'style')
         fields = ('id', 'title', 'code', 'linenos', 'language', 'style','owner')
+
 
 class UserSerializer(serializers.ModelSerializer):
     """

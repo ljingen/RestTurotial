@@ -5,7 +5,7 @@ from .permissions import IsOwnerOrReadOnly
 from django.http import HttpRequest, HttpResponse, Http404, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from django.contrib.auth.models import User, Group
+from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
@@ -15,6 +15,7 @@ from rest_framework import mixins, generics
 from rest_framework.generics import GenericAPIView
 from rest_framework import permissions
 
+User = get_user_model()
 # Create your views here.
 
 # @csrf_exempt
